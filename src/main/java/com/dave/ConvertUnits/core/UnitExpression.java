@@ -44,6 +44,8 @@ public class UnitExpression {
             {"litre", "L"},
             {"tonne", "t"},
     };
+    // Not a super helpful error message, but it's actually tricky to say
+    // exactly what's wrong with a bad expression
     private final String BAD_ARGUMENT_MESSAGE = "Error: bad unit expression";
     private final String[] operators = {"(", ")", "*", "/"};
     private final String unitName;

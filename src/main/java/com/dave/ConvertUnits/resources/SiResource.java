@@ -24,12 +24,11 @@ public class SiResource {
     @GET
     @Timed
     public Conversion convert(@QueryParam("units") @NotEmpty String units) {
-        System.out.println("units: " + units);
         try {
             UnitExpression siUnits = new UnitExpression(units);
             String unitName = siUnits.getUnitName();
             Double multiplicationFactor = siUnits.getMultiplicationFactor();
-            LOGGER.info(String.format("unit expression conversion: %s -> %s, %f", units, unitName, multiplicationFactor));
+            LOGGER.log(Level.INFO, String.format("unit expression conversion: %s -> %s, %f", units, unitName, multiplicationFactor));
             return new Conversion(unitName, multiplicationFactor);
 
         } catch (IllegalArgumentException e) {
